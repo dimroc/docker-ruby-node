@@ -1,4 +1,4 @@
-FROM ruby:2
+FROM ruby:2.4.0
 
 ENV LANG C.UTF-8
 
@@ -25,9 +25,7 @@ RUN set -ex \
 ENV NPM_CONFIG_LOGLEVEL info
 ENV NODE_MAJOR 6
 
-RUN NODE_VERSION=$(curl -SL "https://nodejs.org/dist/index.tab" \
-    | grep "^v$NODE_MAJOR" \
-    | head -n 1 | awk '{ print substr($1,2) }') \
+RUN NODE_VERSION=6.11.3 \
   ARCH= && dpkgArch="$(dpkg --print-architecture)" \
   && case "${dpkgArch##*-}" in \
     amd64) ARCH='x64';; \
