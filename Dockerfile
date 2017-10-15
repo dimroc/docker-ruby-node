@@ -22,9 +22,9 @@ RUN set -ex \
   done
 
 ENV NPM_CONFIG_LOGLEVEL info
-ENV NODE_MAJOR 6
+ENV NODE_MAJOR 8
 
-RUN NODE_VERSION=6.11.3 \
+RUN NODE_VERSION=8.4.0 \
   ARCH= && dpkgArch="$(dpkg --print-architecture)" \
   && case "${dpkgArch##*-}" in \
     amd64) ARCH='x64';; \
